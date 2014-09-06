@@ -19,6 +19,12 @@
 		228ED13B19B97CA60065BE86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228ED12319B97CA50065BE86 /* UIKit.framework */; };
 		228ED14319B97CA60065BE86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 228ED14119B97CA60065BE86 /* InfoPlist.strings */; };
 		228ED14519B97CA60065BE86 /* TwitterNewsReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED14419B97CA60065BE86 /* TwitterNewsReaderTests.m */; };
+		228ED15A19B97DC00065BE86 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED15919B97DC00065BE86 /* ConnectionService.m */; };
+		228ED16819BB037A0065BE86 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228ED16719BB037A0065BE86 /* Social.framework */; };
+		228ED17219BB16970065BE86 /* ApplicationRootManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED17119BB16970065BE86 /* ApplicationRootManager.m */; };
+		228ED17519BB179E0065BE86 /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED17419BB179E0065BE86 /* NewsFeedViewController.m */; };
+		228ED17919BB1DFA0065BE86 /* AccountsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED17819BB1DFA0065BE86 /* AccountsManager.m */; };
+		228ED17C19BB1E180065BE86 /* AccountsSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED17B19BB1E180065BE86 /* AccountsSelectionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,17 @@
 		228ED14019B97CA60065BE86 /* TwitterNewsReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwitterNewsReaderTests-Info.plist"; sourceTree = "<group>"; };
 		228ED14219B97CA60065BE86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		228ED14419B97CA60065BE86 /* TwitterNewsReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwitterNewsReaderTests.m; sourceTree = "<group>"; };
+		228ED15819B97DC00065BE86 /* ConnectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionService.h; sourceTree = "<group>"; };
+		228ED15919B97DC00065BE86 /* ConnectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionService.m; sourceTree = "<group>"; };
+		228ED16719BB037A0065BE86 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		228ED17019BB16970065BE86 /* ApplicationRootManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationRootManager.h; sourceTree = "<group>"; };
+		228ED17119BB16970065BE86 /* ApplicationRootManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationRootManager.m; sourceTree = "<group>"; };
+		228ED17319BB179E0065BE86 /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
+		228ED17419BB179E0065BE86 /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
+		228ED17719BB1DFA0065BE86 /* AccountsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsManager.h; sourceTree = "<group>"; };
+		228ED17819BB1DFA0065BE86 /* AccountsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsManager.m; sourceTree = "<group>"; };
+		228ED17A19BB1E180065BE86 /* AccountsSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsSelectionController.h; sourceTree = "<group>"; };
+		228ED17B19BB1E180065BE86 /* AccountsSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsSelectionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228ED16819BB037A0065BE86 /* Social.framework in Frameworks */,
 				228ED12219B97CA50065BE86 /* CoreGraphics.framework in Frameworks */,
 				228ED12419B97CA50065BE86 /* UIKit.framework in Frameworks */,
 				228ED12019B97CA50065BE86 /* Foundation.framework in Frameworks */,
@@ -96,6 +114,7 @@
 		228ED11E19B97CA50065BE86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				228ED16719BB037A0065BE86 /* Social.framework */,
 				228ED11F19B97CA50065BE86 /* Foundation.framework */,
 				228ED12119B97CA50065BE86 /* CoreGraphics.framework */,
 				228ED12319B97CA50065BE86 /* UIKit.framework */,
@@ -107,8 +126,15 @@
 		228ED12519B97CA50065BE86 /* TwitterNewsReader */ = {
 			isa = PBXGroup;
 			children = (
+				228ED17619BB1DFA0065BE86 /* accounts */,
+				228ED14E19B97D440065BE86 /* connection */,
+				228ED14F19B97D440065BE86 /* model */,
+				228ED15019B97D440065BE86 /* utils */,
+				228ED16919BB03A90065BE86 /* news */,
 				228ED12E19B97CA50065BE86 /* AppDelegate.h */,
 				228ED12F19B97CA50065BE86 /* AppDelegate.m */,
+				228ED17019BB16970065BE86 /* ApplicationRootManager.h */,
+				228ED17119BB16970065BE86 /* ApplicationRootManager.m */,
 				228ED13119B97CA50065BE86 /* Images.xcassets */,
 				228ED12619B97CA50065BE86 /* Supporting Files */,
 			);
@@ -142,6 +168,49 @@
 				228ED14119B97CA60065BE86 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		228ED14E19B97D440065BE86 /* connection */ = {
+			isa = PBXGroup;
+			children = (
+				228ED15819B97DC00065BE86 /* ConnectionService.h */,
+				228ED15919B97DC00065BE86 /* ConnectionService.m */,
+			);
+			path = connection;
+			sourceTree = "<group>";
+		};
+		228ED14F19B97D440065BE86 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		228ED15019B97D440065BE86 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		228ED16919BB03A90065BE86 /* news */ = {
+			isa = PBXGroup;
+			children = (
+				228ED17319BB179E0065BE86 /* NewsFeedViewController.h */,
+				228ED17419BB179E0065BE86 /* NewsFeedViewController.m */,
+			);
+			path = news;
+			sourceTree = "<group>";
+		};
+		228ED17619BB1DFA0065BE86 /* accounts */ = {
+			isa = PBXGroup;
+			children = (
+				228ED17719BB1DFA0065BE86 /* AccountsManager.h */,
+				228ED17819BB1DFA0065BE86 /* AccountsManager.m */,
+				228ED17A19BB1E180065BE86 /* AccountsSelectionController.h */,
+				228ED17B19BB1E180065BE86 /* AccountsSelectionController.m */,
+			);
+			path = accounts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,8 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228ED17C19BB1E180065BE86 /* AccountsSelectionController.m in Sources */,
+				228ED17219BB16970065BE86 /* ApplicationRootManager.m in Sources */,
+				228ED17919BB1DFA0065BE86 /* AccountsManager.m in Sources */,
+				228ED17519BB179E0065BE86 /* NewsFeedViewController.m in Sources */,
 				228ED13019B97CA50065BE86 /* AppDelegate.m in Sources */,
 				228ED12C19B97CA50065BE86 /* main.m in Sources */,
+				228ED15A19B97DC00065BE86 /* ConnectionService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

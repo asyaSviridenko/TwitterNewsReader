@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class ApplicationRootManager;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong, readonly) ApplicationRootManager *manager;
+
++ (AppDelegate *)shared;
 
 @end
