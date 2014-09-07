@@ -36,11 +36,11 @@ NSString * const AccountsManagerUnableToLoadAccountNotification = @"AccountsMana
         
         NSString *notificationName;
         if (!granted || _accounts.count == 0) {
-            _selectedAccount = _accounts.firstObject;
             notificationName = AccountsManagerUnableToLoadAccountNotification;
         } else if (_accounts.count > 1){
             notificationName = AccountsManagerDidLoadAccountsNotification;
         } else {
+            _selectedAccount = _accounts.firstObject;
             notificationName = AccountsManagerDidLoadAccountNotification;
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self];

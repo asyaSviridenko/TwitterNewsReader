@@ -7,6 +7,7 @@
 //
 
 #import "NewsFeedViewController.h"
+#import "ConnectionService.h"
 
 @interface NewsFeedViewController ()
 
@@ -40,6 +41,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Public
+
+- (void)setConnectionService:(ConnectionService *)connectionService
+{
+    if (![_connectionService isEqual:connectionService]) {
+        _connectionService = connectionService;
+        
+        [_connectionService getTimeLineSince:nil till:nil resultHandler:nil];
+    }
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

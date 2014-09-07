@@ -13,4 +13,6 @@
 
 - (instancetype)initWithURL:(NSURL *)url account:(ACAccount *)account;
 
+- (void)getTimeLineSince:(NSString *)sinceID till:(NSString *)tillID resultHandler:(void(^)(NSArray *tweets))handler;
+
 @end
