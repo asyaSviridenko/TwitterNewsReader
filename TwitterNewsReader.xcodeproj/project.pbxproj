@@ -29,6 +29,10 @@
 		228ED18219BC5B560065BE86 /* NSDictionary+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18119BC5B560065BE86 /* NSDictionary+Helpers.m */; };
 		228ED18519BC6B620065BE86 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18419BC6B620065BE86 /* ImageCache.m */; };
 		228ED18819BC6BE00065BE86 /* RemoteImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18719BC6BE00065BE86 /* RemoteImage.m */; };
+		228ED19019BC72260065BE86 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18B19BC72260065BE86 /* EGORefreshTableHeaderView.m */; };
+		228ED19119BC72260065BE86 /* LoadMoreTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18D19BC72260065BE86 /* LoadMoreTableFooterView.m */; };
+		228ED19219BC72260065BE86 /* PullTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18F19BC72260065BE86 /* PullTableView.m */; };
+		228ED19519BC72440065BE86 /* MessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED19419BC72440065BE86 /* MessageInterceptor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,14 @@
 		228ED18419BC6B620065BE86 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		228ED18619BC6BE00065BE86 /* RemoteImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteImage.h; sourceTree = "<group>"; };
 		228ED18719BC6BE00065BE86 /* RemoteImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteImage.m; sourceTree = "<group>"; };
+		228ED18A19BC72260065BE86 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		228ED18B19BC72260065BE86 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		228ED18C19BC72260065BE86 /* LoadMoreTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreTableFooterView.h; sourceTree = "<group>"; };
+		228ED18D19BC72260065BE86 /* LoadMoreTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreTableFooterView.m; sourceTree = "<group>"; };
+		228ED18E19BC72260065BE86 /* PullTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullTableView.h; sourceTree = "<group>"; };
+		228ED18F19BC72260065BE86 /* PullTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullTableView.m; sourceTree = "<group>"; };
+		228ED19319BC72440065BE86 /* MessageInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageInterceptor.h; sourceTree = "<group>"; };
+		228ED19419BC72440065BE86 /* MessageInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageInterceptor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +150,7 @@
 		228ED12519B97CA50065BE86 /* TwitterNewsReader */ = {
 			isa = PBXGroup;
 			children = (
+				228ED18919BC72100065BE86 /* external */,
 				228ED17619BB1DFA0065BE86 /* accounts */,
 				228ED14E19B97D440065BE86 /* connection */,
 				228ED14F19B97D440065BE86 /* model */,
@@ -231,6 +244,21 @@
 				228ED17B19BB1E180065BE86 /* AccountsSelectionController.m */,
 			);
 			path = accounts;
+			sourceTree = "<group>";
+		};
+		228ED18919BC72100065BE86 /* external */ = {
+			isa = PBXGroup;
+			children = (
+				228ED19319BC72440065BE86 /* MessageInterceptor.h */,
+				228ED19419BC72440065BE86 /* MessageInterceptor.m */,
+				228ED18A19BC72260065BE86 /* EGORefreshTableHeaderView.h */,
+				228ED18B19BC72260065BE86 /* EGORefreshTableHeaderView.m */,
+				228ED18C19BC72260065BE86 /* LoadMoreTableFooterView.h */,
+				228ED18D19BC72260065BE86 /* LoadMoreTableFooterView.m */,
+				228ED18E19BC72260065BE86 /* PullTableView.h */,
+				228ED18F19BC72260065BE86 /* PullTableView.m */,
+			);
+			path = external;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228ED19219BC72260065BE86 /* PullTableView.m in Sources */,
+				228ED19019BC72260065BE86 /* EGORefreshTableHeaderView.m in Sources */,
 				228ED18519BC6B620065BE86 /* ImageCache.m in Sources */,
 				228ED17C19BB1E180065BE86 /* AccountsSelectionController.m in Sources */,
 				228ED17219BB16970065BE86 /* ApplicationRootManager.m in Sources */,
@@ -335,8 +365,10 @@
 				228ED18219BC5B560065BE86 /* NSDictionary+Helpers.m in Sources */,
 				228ED17F19BC4E840065BE86 /* Tweet.m in Sources */,
 				228ED17519BB179E0065BE86 /* NewsFeedViewController.m in Sources */,
+				228ED19119BC72260065BE86 /* LoadMoreTableFooterView.m in Sources */,
 				228ED13019B97CA50065BE86 /* AppDelegate.m in Sources */,
 				228ED18819BC6BE00065BE86 /* RemoteImage.m in Sources */,
+				228ED19519BC72440065BE86 /* MessageInterceptor.m in Sources */,
 				228ED12C19B97CA50065BE86 /* main.m in Sources */,
 				228ED15A19B97DC00065BE86 /* ConnectionService.m in Sources */,
 			);
