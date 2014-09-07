@@ -12,7 +12,6 @@
 #import "TweetThumbnailCell.h"
 #import "TweetCell.h"
 #import "Tweet.h"
-#import "UITableViewCell+NIB.h"
 
 static const int64_t voidParameter = -1;
 static const int gridThumbnailCount = 3;

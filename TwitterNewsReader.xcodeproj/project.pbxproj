@@ -41,7 +41,6 @@
 		228ED1BC19BCB7410065BE86 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED1BB19BCB7410065BE86 /* TweetCell.m */; };
 		228ED1BE19BCB8070065BE86 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228ED1BD19BCB8070065BE86 /* TweetCell.xib */; };
 		228ED1C119BCCE480065BE86 /* NSDateFormatter+CreatedAt.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED1C019BCCE480065BE86 /* NSDateFormatter+CreatedAt.m */; };
-		228ED1C419BCD4250065BE86 /* UITableViewCell+NIB.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED1C319BCD4250065BE86 /* UITableViewCell+NIB.m */; };
 		228ED1E319BCD7FA0065BE86 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 228ED1C719BCD7FA0065BE86 /* 1.png */; };
 		228ED1E419BCD7FA0065BE86 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 228ED1C819BCD7FA0065BE86 /* 10.png */; };
 		228ED1E519BCD7FA0065BE86 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 228ED1C919BCD7FA0065BE86 /* 11.png */; };
@@ -143,8 +142,6 @@
 		228ED1BD19BCB8070065BE86 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
 		228ED1BF19BCCE480065BE86 /* NSDateFormatter+CreatedAt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CreatedAt.h"; sourceTree = "<group>"; };
 		228ED1C019BCCE480065BE86 /* NSDateFormatter+CreatedAt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+CreatedAt.m"; sourceTree = "<group>"; };
-		228ED1C219BCD4250065BE86 /* UITableViewCell+NIB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+NIB.h"; sourceTree = "<group>"; };
-		228ED1C319BCD4250065BE86 /* UITableViewCell+NIB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+NIB.m"; sourceTree = "<group>"; };
 		228ED1C719BCD7FA0065BE86 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		228ED1C819BCD7FA0065BE86 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		228ED1C919BCD7FA0065BE86 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
@@ -302,8 +299,6 @@
 		228ED15019B97D440065BE86 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				228ED1C219BCD4250065BE86 /* UITableViewCell+NIB.h */,
-				228ED1C319BCD4250065BE86 /* UITableViewCell+NIB.m */,
 				228ED19B19BC86D40065BE86 /* UIView+NIB.h */,
 				228ED19C19BC86D40065BE86 /* UIView+NIB.m */,
 				228ED18019BC5B560065BE86 /* NSDictionary+Helpers.h */,
@@ -548,7 +543,6 @@
 				228ED1B919BCA6840065BE86 /* TweetThumbnailCell.m in Sources */,
 				228ED19119BC72260065BE86 /* LoadMoreTableFooterView.m in Sources */,
 				228ED13019B97CA50065BE86 /* AppDelegate.m in Sources */,
-				228ED1C419BCD4250065BE86 /* UITableViewCell+NIB.m in Sources */,
 				228ED18819BC6BE00065BE86 /* RemoteImage.m in Sources */,
 				228ED1BC19BCB7410065BE86 /* TweetCell.m in Sources */,
 				228ED1B019BCA2200065BE86 /* RemoteImageView.m in Sources */,
