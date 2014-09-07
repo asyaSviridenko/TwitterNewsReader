@@ -13,6 +13,7 @@
 #import <Accounts/ACAccountType.h>
 #import "AccountsSelectionController.h"
 #import "AppDelegate.h"
+#import "ImageCache.h"
 
 @interface ApplicationRootManager () <AccountsSelectionControllerDelegate>
 @end
@@ -31,6 +32,8 @@
 {
     self = [super init];
     if (self) {
+        _imageCache = [ImageCache new];
+        
         _rootURL = [NSURL URLWithString:@"https://api.twitter.com/1.1/"];
         
         _accountManager = [[AccountsManager alloc] initWithAccountTypeID:ACAccountTypeIdentifierTwitter];

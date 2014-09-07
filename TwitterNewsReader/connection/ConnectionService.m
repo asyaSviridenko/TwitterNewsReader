@@ -11,6 +11,7 @@
 #import <Social/Social.h>
 #import "Tweet.h"
 #import "NSDictionary+Helpers.h"
+#import "NSDateFormatter+CreatedAt.h"
 
 #define ADD_IF_NOT_EMPTY(dict, val, key) if (val > 0) { [parameters setObject:[NSString stringWithFormat:@"%lld", val] forKey:key];}
 
@@ -76,10 +77,7 @@
         tweet.tweetID = [data int64ForKey:@"id_str"];
         tweet.text = [data nonNullObjectForKey:@"text"];
         
-        NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
-        //[format setDateFormat:@"hh:mm:ss"];
-        tweet.createdAt = [data dateForKey:@"created_at" formatter:format];
+        tweet.createdAt = [data dateForKey:@"created_at" formatter:[NSDateFormatter createdAtFormatter]];
         
         NSDictionary *userData = (NSDictionary *)[data objectForKey:@"user"];
         tweet.user = [userData nonNullObjectForKey:@"name"];

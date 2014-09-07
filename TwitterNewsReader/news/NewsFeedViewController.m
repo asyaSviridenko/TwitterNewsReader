@@ -9,9 +9,13 @@
 #import "NewsFeedViewController.h"
 #import "ConnectionService.h"
 #import "PullTableView.h"
+#import "TweetThumbnailCell.h"
+#import "TweetCell.h"
 #import "Tweet.h"
+#import "UITableViewCell+NIB.h"
 
 static const int64_t voidParameter = -1;
+static const int gridThumbnailCount = 3;
 
 @interface NewsFeedViewController ()<PullTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -23,6 +27,7 @@ static const int64_t voidParameter = -1;
 
 @implementation NewsFeedViewController {
     NSMutableArray *_tweets;
+    BOOL _isGridMode;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +35,7 @@ static const int64_t voidParameter = -1;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _tweets = [NSMutableArray array];
+        _isGridMode = NO;
     }
     return self;
 }
@@ -39,9 +45,15 @@ static const int64_t voidParameter = -1;
     [super viewDidLoad];
     
     self.title = @"News Feed";
-
+    
+    [self setRightBarButtonItem];
+    
     _tableView.allowsSelection = NO;
     _tableView.tableFooterView = [UIView new];
+    _tableView.pullArrowImage = [UIImage imageNamed:@"PullDown.png"];
+    _tableView.backgroundColor = self.view.backgroundColor;
+    _tableView.pullBackgroundColor = _tableView.backgroundColor;
+    _tableView.loadBackgroundColor = _tableView.backgroundColor;
 }
 
 #pragma mark - Public
@@ -57,9 +69,37 @@ static const int64_t voidParameter = -1;
 
 #pragma mark - Internals
 
+- (void)onSwitchViewMode
+{
+    _isGridMode = !_isGridMode;
+    [self setRightBarButtonItem];
+    [_tableView reloadData];
+}
+
+- (void)setRightBarButtonItem
+{
+    NSString *name = _isGridMode ? @"Selector_active.png" : @"Selector.png";
+    UIImage *image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(onSwitchViewMode)];
+}
+
 - (void)showLoadingView:(BOOL)show
 {
     _loadingView.hidden = !show;
+}
+
+- (NSArray *)getRowTweetsForIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableArray *rowTweets = [NSMutableArray array];
+    
+    for (int i = 0; i < gridThumbnailCount; i++) {
+        int row = gridThumbnailCount * indexPath.row + i;
+        if (row < _tweets.count) {
+            [rowTweets addObject:[_tweets objectAtIndex:row]];
+        }
+    }
+    
+    return rowTweets;
 }
 
 - (ResultHandler)resultHandler
@@ -83,23 +123,42 @@ static const int64_t voidParameter = -1;
 
 #pragma mark - UITableViewDataSource
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Tweet *tweet = [_tweets objectAtIndex:indexPath.row];
+    CGFloat width = tableView.frame.size.width;
+    return _isGridMode ? width/gridThumbnailCount : [TweetCell viewHeightForText:tweet.text];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _tweets.count;
+    return _isGridMode ? (NSInteger)ceil((double)_tweets.count/gridThumbnailCount) : _tweets.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+    if (_isGridMode) {
+        TweetThumbnailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gridCellID"];
+        
+        if (cell == nil) {
+            cell = [[TweetThumbnailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"gridCellID"];
+        }
+        
+        cell.rowTweets = [self getRowTweetsForIndexPath:indexPath];
+        return cell;
+        
+    } else {
+        
+        TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+        
+        if (cell == nil) {
+            cell = [TweetCell loadFromNib];
+        }
+        
+        cell.tweet = [_tweets objectAtIndex:indexPath.row];
+        cell.backgroundColor = indexPath.row % 2 ? [UIColor greenColor] : [UIColor redColor];
+        return cell;
     }
-    
-    Tweet *tweet = [_tweets objectAtIndex:indexPath.row];
-    cell.textLabel.text = tweet.text;
-    
-    return cell;
 }
 
 #pragma mark - PullTableViewDelegate
