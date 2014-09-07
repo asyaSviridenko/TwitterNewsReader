@@ -10,11 +10,15 @@
 
 @class ConnectionService;
 @class AccountsManager;
+@class ImageCache;
 
 @interface ApplicationRootManager : NSObject
 
 @property (nonatomic, strong, readonly) UIViewController *rootController;
 @property (nonatomic, strong, readonly) ConnectionService *connectionService;
 @property (nonatomic, strong, readonly) AccountsManager *accountManager;
+@property (nonatomic, strong, readonly) ImageCache *imageCache;
+
++ (ApplicationRootManager *)shared;
 
 @end

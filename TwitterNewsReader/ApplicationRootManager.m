@@ -12,6 +12,7 @@
 #import "AccountsManager.h"
 #import <Accounts/ACAccountType.h>
 #import "AccountsSelectionController.h"
+#import "AppDelegate.h"
 
 @interface ApplicationRootManager () <AccountsSelectionControllerDelegate>
 @end
@@ -19,6 +20,11 @@
 @implementation ApplicationRootManager {
     NewsFeedViewController *_rootController;
     NSURL *_rootURL;
+}
+
++ (ApplicationRootManager *)shared
+{
+    return [AppDelegate shared].manager;
 }
 
 - (instancetype)init

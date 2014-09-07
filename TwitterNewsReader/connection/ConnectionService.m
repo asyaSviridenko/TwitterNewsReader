@@ -7,7 +7,7 @@
 //
 
 #import "ConnectionService.h"
-#import "AppDelegate.h"
+#import "ApplicationRootManager.h"
 #import <Social/Social.h>
 #import "Tweet.h"
 #import "NSDictionary+Helpers.h"
@@ -15,6 +15,11 @@
 @implementation ConnectionService {
     NSURL *_rootURL;
     ACAccount *_account;
+}
+
++ (ConnectionService *)shared
+{
+    return [ApplicationRootManager shared].connectionService;
 }
 
 - (instancetype)initWithURL:(NSURL *)url account:(ACAccount *)account

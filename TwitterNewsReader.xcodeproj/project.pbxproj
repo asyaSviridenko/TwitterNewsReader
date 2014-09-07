@@ -27,6 +27,8 @@
 		228ED17C19BB1E180065BE86 /* AccountsSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED17B19BB1E180065BE86 /* AccountsSelectionController.m */; };
 		228ED17F19BC4E840065BE86 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED17E19BC4E840065BE86 /* Tweet.m */; };
 		228ED18219BC5B560065BE86 /* NSDictionary+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18119BC5B560065BE86 /* NSDictionary+Helpers.m */; };
+		228ED18519BC6B620065BE86 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18419BC6B620065BE86 /* ImageCache.m */; };
+		228ED18819BC6BE00065BE86 /* RemoteImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18719BC6BE00065BE86 /* RemoteImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,10 @@
 		228ED17E19BC4E840065BE86 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		228ED18019BC5B560065BE86 /* NSDictionary+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Helpers.h"; sourceTree = "<group>"; };
 		228ED18119BC5B560065BE86 /* NSDictionary+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Helpers.m"; sourceTree = "<group>"; };
+		228ED18319BC6B620065BE86 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		228ED18419BC6B620065BE86 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		228ED18619BC6BE00065BE86 /* RemoteImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteImage.h; sourceTree = "<group>"; };
+		228ED18719BC6BE00065BE86 /* RemoteImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,10 @@
 				228ED15919B97DC00065BE86 /* ConnectionService.m */,
 				228ED17D19BC4E840065BE86 /* Tweet.h */,
 				228ED17E19BC4E840065BE86 /* Tweet.m */,
+				228ED18319BC6B620065BE86 /* ImageCache.h */,
+				228ED18419BC6B620065BE86 /* ImageCache.m */,
+				228ED18619BC6BE00065BE86 /* RemoteImage.h */,
+				228ED18719BC6BE00065BE86 /* RemoteImage.m */,
 			);
 			path = connection;
 			sourceTree = "<group>";
@@ -318,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228ED18519BC6B620065BE86 /* ImageCache.m in Sources */,
 				228ED17C19BB1E180065BE86 /* AccountsSelectionController.m in Sources */,
 				228ED17219BB16970065BE86 /* ApplicationRootManager.m in Sources */,
 				228ED17919BB1DFA0065BE86 /* AccountsManager.m in Sources */,
@@ -325,6 +336,7 @@
 				228ED17F19BC4E840065BE86 /* Tweet.m in Sources */,
 				228ED17519BB179E0065BE86 /* NewsFeedViewController.m in Sources */,
 				228ED13019B97CA50065BE86 /* AppDelegate.m in Sources */,
+				228ED18819BC6BE00065BE86 /* RemoteImage.m in Sources */,
 				228ED12C19B97CA50065BE86 /* main.m in Sources */,
 				228ED15A19B97DC00065BE86 /* ConnectionService.m in Sources */,
 			);
@@ -523,6 +535,7 @@
 				228ED14A19B97CA60065BE86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		228ED14B19B97CA60065BE86 /* Build configuration list for PBXNativeTarget "TwitterNewsReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +544,7 @@
 				228ED14D19B97CA60065BE86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
