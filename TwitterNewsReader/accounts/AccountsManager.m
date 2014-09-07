@@ -31,19 +31,23 @@ NSString * const AccountsManagerUnableToLoadAccountNotification = @"AccountsMana
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:_accountTypeID];
     
+    __block AccountsManager *blockSelf = self;
     [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
-        _accounts = [accountStore accountsWithAccountType:accountType];
+        blockSelf->_accounts = [accountStore accountsWithAccountType:accountType];
         
         NSString *notificationName;
-        if (!granted || _accounts.count == 0) {
+        if (!granted || blockSelf->_accounts.count == 0) {
             notificationName = AccountsManagerUnableToLoadAccountNotification;
-        } else if (_accounts.count > 1){
+        } else if (blockSelf->_accounts.count > 1){
             notificationName = AccountsManagerDidLoadAccountsNotification;
         } else {
-            _selectedAccount = _accounts.firstObject;
+            blockSelf->_selectedAccount = blockSelf->_accounts.firstObject;
             notificationName = AccountsManagerDidLoadAccountNotification;
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:blockSelf];
+        });
     }];
 }
 

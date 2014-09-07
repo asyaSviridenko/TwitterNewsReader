@@ -55,7 +55,9 @@
 {
     AccountsSelectionController *controller = [[AccountsSelectionController alloc] initWithAccounts:_accountManager.accounts];
     controller.delegate = self;
-    [_rootController presentViewController:controller animated:YES completion:nil];
+    
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:controller];
+    [_rootController presentViewController:nc animated:YES completion:nil];
 }
 
 - (void)onOneAccountLoaded
