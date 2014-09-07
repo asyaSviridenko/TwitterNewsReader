@@ -46,7 +46,7 @@
     if (![_tweet isEqual:tweet]) {
         _tweet = tweet;
         
-        _userLabel.text = _tweet.user;
+        _userLabel.text = _tweet.username;
         _tweetLabel.text = _tweet.text;
         [_imageView displayImage:[[ImageCache shared] remoteImageForURL:_tweet.imageURL]];
         _dateLabel.text = [[NSDateFormatter tweetFormatter] stringFromDate:_tweet.createdAt];

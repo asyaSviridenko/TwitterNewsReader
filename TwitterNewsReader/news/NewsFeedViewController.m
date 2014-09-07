@@ -150,7 +150,6 @@ static const int gridThumbnailCount = 3;
         return cell;
         
     } else {
-        
         TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
         
         if (cell == nil) {

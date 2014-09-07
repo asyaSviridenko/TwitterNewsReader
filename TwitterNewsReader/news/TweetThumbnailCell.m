@@ -7,33 +7,25 @@
 //
 
 #import "TweetThumbnailCell.h"
-#import "RemoteImageView.h"
+#import "TweetThumbnailView.h"
 #import "UIView+NIB.h"
 #import "Tweet.h"
 #import "ImageCache.h"
 
 @implementation TweetThumbnailCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    CGFloat width = MIN(self.bounds.size.width/_rowTweets.count, self.bounds.size.height);
     CGFloat offset = 0.0f;
-    CGFloat gap = 10.0f;
     
     for (UIView *subview in self.contentView.subviews) {
-        subview.frame = CGRectMake(offset + gap, gap, width - 2 * gap, width - 2 * gap);
-        offset += width;
+        CGRect rect = subview.frame;
+        rect.origin.x = offset;
+        subview.frame = rect;
+        
+        offset += rect.size.width;
     }
 }
 
@@ -42,7 +34,6 @@
     if (![_rowTweets isEqualToArray:rowTweets]) {
         _rowTweets = rowTweets.copy;
         
-        [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [self addRemoteImageViews];
     }
 }
@@ -50,11 +41,10 @@
 - (void)addRemoteImageViews
 {
     for (Tweet *tweet in _rowTweets) {
-        RemoteImageView *imageView = [RemoteImageView loadFromNIB];
-        imageView.isCircular = YES;
-        [imageView displayImage:[[ImageCache shared] remoteImageForURL:tweet.imageURL]];
-        
-        [self.contentView addSubview:imageView];
+        TweetThumbnailView *view = [TweetThumbnailView loadFromNIB];
+        view.username = tweet.shortUsername;
+        view.image = [[ImageCache shared] remoteImageForURL:tweet.imageURL];
+        [self.contentView addSubview:view];
     }
 }
 

@@ -80,7 +80,8 @@
         tweet.createdAt = [data dateForKey:@"created_at" formatter:[NSDateFormatter createdAtFormatter]];
         
         NSDictionary *userData = (NSDictionary *)[data objectForKey:@"user"];
-        tweet.user = [userData nonNullObjectForKey:@"name"];
+        tweet.username = [userData nonNullObjectForKey:@"name"];
+        tweet.shortUsername = [userData nonNullObjectForKey:@"screen_name"];
         tweet.imageURL = [userData urlForKey:@"profile_image_url"];
         
         [tweets addObject:tweet];

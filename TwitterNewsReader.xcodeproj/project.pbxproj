@@ -72,6 +72,8 @@
 		228ED1FE19BCD7FA0065BE86 /* Selector_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 228ED1E219BCD7FA0065BE86 /* Selector_active@2x.png */; };
 		228ED20519BCDB5D0065BE86 /* PullDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 228ED20319BCDB5D0065BE86 /* PullDown.png */; };
 		228ED20619BCDB5D0065BE86 /* PullDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 228ED20419BCDB5D0065BE86 /* PullDown@2x.png */; };
+		228ED20919BCEE3C0065BE86 /* TweetThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED20819BCEE3C0065BE86 /* TweetThumbnailView.m */; };
+		228ED20B19BCEE650065BE86 /* TweetThumbnailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228ED20A19BCEE650065BE86 /* TweetThumbnailView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,9 @@
 		228ED1E219BCD7FA0065BE86 /* Selector_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Selector_active@2x.png"; sourceTree = "<group>"; };
 		228ED20319BCDB5D0065BE86 /* PullDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PullDown.png; sourceTree = "<group>"; };
 		228ED20419BCDB5D0065BE86 /* PullDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PullDown@2x.png"; sourceTree = "<group>"; };
+		228ED20719BCEE3C0065BE86 /* TweetThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetThumbnailView.h; sourceTree = "<group>"; };
+		228ED20819BCEE3C0065BE86 /* TweetThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetThumbnailView.m; sourceTree = "<group>"; };
+		228ED20A19BCEE650065BE86 /* TweetThumbnailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetThumbnailView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +325,9 @@
 				228ED1BD19BCB8070065BE86 /* TweetCell.xib */,
 				228ED1B719BCA6840065BE86 /* TweetThumbnailCell.h */,
 				228ED1B819BCA6840065BE86 /* TweetThumbnailCell.m */,
+				228ED20719BCEE3C0065BE86 /* TweetThumbnailView.h */,
+				228ED20819BCEE3C0065BE86 /* TweetThumbnailView.m */,
+				228ED20A19BCEE650065BE86 /* TweetThumbnailView.xib */,
 				228ED1AD19BCA2200065BE86 /* RemoteImageView.h */,
 				228ED1AE19BCA2200065BE86 /* RemoteImageView.m */,
 				228ED1AF19BCA2200065BE86 /* RemoteImageView.xib */,
@@ -476,6 +484,7 @@
 				228ED1F819BCD7FA0065BE86 /* 7.png in Resources */,
 				228ED1EC19BCD7FA0065BE86 /* 18.png in Resources */,
 				228ED1FD19BCD7FA0065BE86 /* Selector_active.png in Resources */,
+				228ED20B19BCEE650065BE86 /* TweetThumbnailView.xib in Resources */,
 				228ED1F319BCD7FA0065BE86 /* 24.png in Resources */,
 				228ED1EA19BCD7FA0065BE86 /* 16.png in Resources */,
 				228ED20619BCDB5D0065BE86 /* PullDown@2x.png in Resources */,
@@ -535,6 +544,7 @@
 				228ED18219BC5B560065BE86 /* NSDictionary+Helpers.m in Sources */,
 				228ED17F19BC4E840065BE86 /* Tweet.m in Sources */,
 				228ED17519BB179E0065BE86 /* NewsFeedViewController.m in Sources */,
+				228ED20919BCEE3C0065BE86 /* TweetThumbnailView.m in Sources */,
 				228ED1B919BCA6840065BE86 /* TweetThumbnailCell.m in Sources */,
 				228ED19119BC72260065BE86 /* LoadMoreTableFooterView.m in Sources */,
 				228ED13019B97CA50065BE86 /* AppDelegate.m in Sources */,
