@@ -15,17 +15,31 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEE MMM dd HH:mm:ss '+0000' yyyy"];
     [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en-US"]];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     
     return formatter;
 }
 
-+ (NSDateFormatter *)tweetFormatter
++ (NSString *)stringFromTweetDate:(NSDate *)date
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd.MM.yy HH:mm"];
-    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en-US"]];
     
-    return formatter;
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en-US"]];
+    [formatter setTimeZone:[NSTimeZone localTimeZone]];
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDate *today = [cal dateFromComponents:components];
+    components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
+    NSDate *otherDate = [cal dateFromComponents:components];
+    
+    if([today isEqualToDate:otherDate]) {
+        [formatter setDateFormat:@"HH:mm"];
+    } else {
+        [formatter setDateFormat:@"dd.MM.yy HH:mm"];
+    }
+    
+    return [formatter stringFromDate:date];
 }
 
 @end

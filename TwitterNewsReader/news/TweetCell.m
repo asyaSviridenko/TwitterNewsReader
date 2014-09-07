@@ -49,7 +49,7 @@
         _userLabel.text = _tweet.username;
         _tweetLabel.text = _tweet.text;
         [_imageView displayImage:[[ImageCache shared] remoteImageForURL:_tweet.imageURL]];
-        _dateLabel.text = [[NSDateFormatter tweetFormatter] stringFromDate:_tweet.createdAt];
+        _dateLabel.text = [NSDateFormatter stringFromTweetDate:_tweet.createdAt];
     }
 }
 

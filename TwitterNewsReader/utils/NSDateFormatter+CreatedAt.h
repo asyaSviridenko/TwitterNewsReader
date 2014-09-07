@@ -11,5 +11,6 @@
 @interface NSDateFormatter (CreatedAt)
 
 + (NSDateFormatter *)createdAtFormatter;
-+ (NSDateFormatter *)tweetFormatter;
++ (NSString *)stringFromTweetDate:(NSDate *)date;
+
 @end
