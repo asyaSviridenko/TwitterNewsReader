@@ -41,7 +41,7 @@
 {
     NSURL *requestURL = [NSURL URLWithString:@"statuses/home_timeline.json" relativeToURL:_rootURL];
     
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:@"20" forKey:@"count"];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:@"21" forKey:@"count"];
     ADD_IF_NOT_EMPTY(parameters, sinceID, @"since_id");
     ADD_IF_NOT_EMPTY(parameters, tillID, @"max_id");
     

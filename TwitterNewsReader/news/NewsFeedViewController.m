@@ -67,7 +67,7 @@ static const int gridThumbnailCount = 3;
         _connectionService = connectionService;
         
         [self showLoadingView:YES];
-        [_connectionService getTimeLineSince:voidParameter till:voidParameter resultHandler:[self resultHandler]];
+        [_connectionService getTimeLineSince:voidParameter till:voidParameter resultHandler:[self loadMoreHandler]];
     }
 }
 
@@ -109,7 +109,7 @@ static const int gridThumbnailCount = 3;
     return rowTweets;
 }
 
-- (ResultHandler)resultHandler
+- (ResultHandler)loadMoreHandler
 {
     __block NewsFeedViewController *blockSelf = self;
     
@@ -117,15 +117,33 @@ static const int gridThumbnailCount = 3;
         [blockSelf->_tweets addObjectsFromArray:newTweets];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            blockSelf->_tableView.pullTableIsLoadingMore = NO;
-            blockSelf->_tableView.pullTableIsRefreshing = NO;
-            
-            [blockSelf->_tableView reloadData];
-            
-            blockSelf->_noResultsLabel.hidden = blockSelf->_tweets.count > 0;
-            [blockSelf showLoadingView:NO];
+            [blockSelf applyUpdates];
         });
     } copy];
+}
+
+- (ResultHandler)refreshHandler
+{
+    __block NewsFeedViewController *blockSelf = self;
+    
+    return [^(NSArray *newTweets) {
+        [blockSelf->_tweets insertObjects:newTweets atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newTweets.count)]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [blockSelf applyUpdates];
+        });
+    } copy];
+}
+
+- (void)applyUpdates
+{
+    _tableView.pullTableIsLoadingMore = NO;
+    _tableView.pullTableIsRefreshing = NO;
+    
+    [_tableView reloadData];
+    
+    _noResultsLabel.hidden = _tweets.count > 0;
+    [self showLoadingView:NO];
 }
 
 - (void)registerCellClasses
@@ -167,12 +185,12 @@ static const int gridThumbnailCount = 3;
 
 - (void)pullTableViewDidTriggerLoadMore:(PullTableView *)pullTableView
 {
-    [_connectionService getTimeLineSince:voidParameter till:((Tweet *)_tweets.lastObject).tweetID - 1 resultHandler:[self resultHandler]];
+    [_connectionService getTimeLineSince:voidParameter till:((Tweet *)_tweets.lastObject).tweetID - 1 resultHandler:[self loadMoreHandler]];
 }
 
 - (void)pullTableViewDidTriggerRefresh:(PullTableView *)pullTableView
 {
-    [_connectionService getTimeLineSince:((Tweet *)_tweets.firstObject).tweetID + 1 till:voidParameter resultHandler:[self resultHandler]];
+    [_connectionService getTimeLineSince:((Tweet *)_tweets.firstObject).tweetID + 1 till:voidParameter resultHandler:[self refreshHandler]];
 }
 
 @end

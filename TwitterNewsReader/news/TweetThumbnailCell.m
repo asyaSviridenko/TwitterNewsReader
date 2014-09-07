@@ -11,6 +11,7 @@
 #import "UIView+NIB.h"
 #import "Tweet.h"
 #import "ImageCache.h"
+#import "NSDateFormatter+CreatedAt.h"
 
 @implementation TweetThumbnailCell
 
@@ -34,6 +35,7 @@
     if (![_rowTweets isEqualToArray:rowTweets]) {
         _rowTweets = rowTweets.copy;
         
+        [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [self addRemoteImageViews];
     }
 }
@@ -42,7 +44,7 @@
 {
     for (Tweet *tweet in _rowTweets) {
         TweetThumbnailView *view = [TweetThumbnailView loadFromNIB];
-        view.username = tweet.shortUsername;
+        view.username = [NSDateFormatter stringFromTweetDate:tweet.createdAt];
         view.image = [[ImageCache shared] remoteImageForURL:tweet.imageURL];
         
         [self.contentView addSubview:view];
