@@ -42,4 +42,9 @@
     return date;
 }
 
+- (int64_t)int64ForKey:(id)key
+{
+    return [[self objectForKey:key] longLongValue];
+}
+
 @end

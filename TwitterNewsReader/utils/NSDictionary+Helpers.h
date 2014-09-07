@@ -13,5 +13,6 @@
 - (id)nonNullObjectForKey:(id)key;
 - (NSDate*)dateForKey:(id)key formatter:(NSDateFormatter*)formatter;
 - (NSURL*)urlForKey:(id)key;
+- (int64_t)int64ForKey:(id)key;
 
 @end

@@ -22,7 +22,7 @@
     NSURL *_rootURL;
 }
 
-+ (ApplicationRootManager *)shared
++ (instancetype)shared
 {
     return [AppDelegate shared].manager;
 }

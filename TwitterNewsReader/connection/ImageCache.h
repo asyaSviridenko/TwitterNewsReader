@@ -12,7 +12,7 @@
 
 @interface ImageCache : NSObject
 
-+ (ImageCache *)shared;
++ (instancetype)shared;
 
 - (RemoteImage*)remoteImageForURL:(NSURL*)url;
 

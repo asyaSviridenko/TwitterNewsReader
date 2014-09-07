@@ -12,7 +12,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Tweet[%p]: id: %@, user: %@, createdAt: %@, image: %@, text: %@", self, _tweetID, _user, _createdAt, _imageURL, _text];
+    return [NSString stringWithFormat:@"Tweet[%p]: id: %lld, user: %@, createdAt: %@, image: %@, text: %@", self, _tweetID, _user, _createdAt, _imageURL, _text];
 }
 
 @end

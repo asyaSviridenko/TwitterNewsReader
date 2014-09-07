@@ -10,7 +10,7 @@
 
 @interface Tweet : NSObject
 
-@property (nonatomic, copy) NSString *tweetID;
+@property (nonatomic, assign) int64_t tweetID;
 @property (nonatomic, copy) NSString *user;
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, strong) NSURL *imageURL;

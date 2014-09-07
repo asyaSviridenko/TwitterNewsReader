@@ -33,6 +33,8 @@
 		228ED19119BC72260065BE86 /* LoadMoreTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18D19BC72260065BE86 /* LoadMoreTableFooterView.m */; };
 		228ED19219BC72260065BE86 /* PullTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED18F19BC72260065BE86 /* PullTableView.m */; };
 		228ED19519BC72440065BE86 /* MessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED19419BC72440065BE86 /* MessageInterceptor.m */; };
+		228ED19D19BC86D40065BE86 /* UIView+NIB.m in Sources */ = {isa = PBXBuildFile; fileRef = 228ED19C19BC86D40065BE86 /* UIView+NIB.m */; };
+		228ED1A119BC8B7A0065BE86 /* NewsFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228ED1A019BC8B7A0065BE86 /* NewsFeedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,9 @@
 		228ED18F19BC72260065BE86 /* PullTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullTableView.m; sourceTree = "<group>"; };
 		228ED19319BC72440065BE86 /* MessageInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageInterceptor.h; sourceTree = "<group>"; };
 		228ED19419BC72440065BE86 /* MessageInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageInterceptor.m; sourceTree = "<group>"; };
+		228ED19B19BC86D40065BE86 /* UIView+NIB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NIB.h"; sourceTree = "<group>"; };
+		228ED19C19BC86D40065BE86 /* UIView+NIB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NIB.m"; sourceTree = "<group>"; };
+		228ED1A019BC8B7A0065BE86 /* NewsFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +158,6 @@
 				228ED18919BC72100065BE86 /* external */,
 				228ED17619BB1DFA0065BE86 /* accounts */,
 				228ED14E19B97D440065BE86 /* connection */,
-				228ED14F19B97D440065BE86 /* model */,
 				228ED15019B97D440065BE86 /* utils */,
 				228ED16919BB03A90065BE86 /* news */,
 				228ED12E19B97CA50065BE86 /* AppDelegate.h */,
@@ -210,16 +214,11 @@
 			path = connection;
 			sourceTree = "<group>";
 		};
-		228ED14F19B97D440065BE86 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		228ED15019B97D440065BE86 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				228ED19B19BC86D40065BE86 /* UIView+NIB.h */,
+				228ED19C19BC86D40065BE86 /* UIView+NIB.m */,
 				228ED18019BC5B560065BE86 /* NSDictionary+Helpers.h */,
 				228ED18119BC5B560065BE86 /* NSDictionary+Helpers.m */,
 			);
@@ -231,6 +230,7 @@
 			children = (
 				228ED17319BB179E0065BE86 /* NewsFeedViewController.h */,
 				228ED17419BB179E0065BE86 /* NewsFeedViewController.m */,
+				228ED1A019BC8B7A0065BE86 /* NewsFeedViewController.xib */,
 			);
 			path = news;
 			sourceTree = "<group>";
@@ -338,6 +338,7 @@
 			files = (
 				228ED12A19B97CA50065BE86 /* InfoPlist.strings in Resources */,
 				228ED13219B97CA50065BE86 /* Images.xcassets in Resources */,
+				228ED1A119BC8B7A0065BE86 /* NewsFeedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +369,7 @@
 				228ED19119BC72260065BE86 /* LoadMoreTableFooterView.m in Sources */,
 				228ED13019B97CA50065BE86 /* AppDelegate.m in Sources */,
 				228ED18819BC6BE00065BE86 /* RemoteImage.m in Sources */,
+				228ED19D19BC86D40065BE86 /* UIView+NIB.m in Sources */,
 				228ED19519BC72440065BE86 /* MessageInterceptor.m in Sources */,
 				228ED12C19B97CA50065BE86 /* main.m in Sources */,
 				228ED15A19B97DC00065BE86 /* ConnectionService.m in Sources */,

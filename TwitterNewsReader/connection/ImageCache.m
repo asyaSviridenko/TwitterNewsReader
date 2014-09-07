@@ -14,7 +14,7 @@
     NSMutableDictionary *images;
 }
 
-+ (ImageCache*)shared
++ (instancetype)shared
 {
     return [ApplicationRootManager shared].imageCache;
 }

@@ -13,7 +13,7 @@
     UIWindow *_window;
 }
 
-+ (AppDelegate*)shared
++ (instancetype)shared
 {
     return (AppDelegate*)[UIApplication sharedApplication].delegate;
 }
@@ -24,8 +24,11 @@
     
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.backgroundColor = [UIColor whiteColor];
+
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:_manager.rootController];
+    nc.navigationBar.translucent = NO;
+    _window.rootViewController = nc;
     
-    _window.rootViewController = _manager.rootController;
     [_window makeKeyAndVisible];
     
     return YES;

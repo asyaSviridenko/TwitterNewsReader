@@ -10,7 +10,7 @@
 
 @class ConnectionService;
 
-@interface NewsFeedViewController : UITableViewController
+@interface NewsFeedViewController : UIViewController
 
 @property (nonatomic, strong) ConnectionService *connectionService;
 

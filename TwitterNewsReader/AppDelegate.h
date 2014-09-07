@@ -14,6 +14,6 @@
 
 @property (nonatomic, strong, readonly) ApplicationRootManager *manager;
 
-+ (AppDelegate *)shared;
++ (instancetype)shared;
 
 @end

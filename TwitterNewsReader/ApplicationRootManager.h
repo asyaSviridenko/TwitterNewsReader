@@ -19,6 +19,6 @@
 @property (nonatomic, strong, readonly) AccountsManager *accountManager;
 @property (nonatomic, strong, readonly) ImageCache *imageCache;
 
-+ (ApplicationRootManager *)shared;
++ (instancetype)shared;
 
 @end

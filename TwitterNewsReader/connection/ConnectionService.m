@@ -12,12 +12,14 @@
 #import "Tweet.h"
 #import "NSDictionary+Helpers.h"
 
+#define ADD_IF_NOT_EMPTY(dict, val, key) if (val > 0) { [parameters setObject:[NSString stringWithFormat:@"%lld", val] forKey:key];}
+
 @implementation ConnectionService {
     NSURL *_rootURL;
     ACAccount *_account;
 }
 
-+ (ConnectionService *)shared
++ (instancetype)shared
 {
     return [ApplicationRootManager shared].connectionService;
 }
@@ -34,11 +36,13 @@
 
 #pragma mark - Public
 
-- (void)getTimeLineSince:(NSString *)sinceID till:(NSString *)tillID resultHandler:(void (^)(NSArray *))handler
+- (void)getTimeLineSince:(int64_t)sinceID till:(int64_t)tillID resultHandler:(ResultHandler)handler
 {
     NSURL *requestURL = [NSURL URLWithString:@"statuses/home_timeline.json" relativeToURL:_rootURL];
     
-    NSDictionary *parameters = @{@"count" : @"20"};
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:@"20" forKey:@"count"];
+    ADD_IF_NOT_EMPTY(parameters, sinceID, @"since_id");
+    ADD_IF_NOT_EMPTY(parameters, tillID, @"max_id");
     
     SLRequest *postRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                 requestMethod:SLRequestMethodGET
@@ -69,7 +73,7 @@
     
     for (NSDictionary *data in tweetsData) {
         Tweet *tweet = [Tweet new];
-        tweet.tweetID = [data nonNullObjectForKey:@"id_str"];
+        tweet.tweetID = [data int64ForKey:@"id_str"];
         tweet.text = [data nonNullObjectForKey:@"text"];
         
         NSDateFormatter *format = [[NSDateFormatter alloc] init];
