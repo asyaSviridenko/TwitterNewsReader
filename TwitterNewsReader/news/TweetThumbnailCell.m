@@ -44,6 +44,7 @@
         TweetThumbnailView *view = [TweetThumbnailView loadFromNIB];
         view.username = tweet.shortUsername;
         view.image = [[ImageCache shared] remoteImageForURL:tweet.imageURL];
+        
         [self.contentView addSubview:view];
     }
 }

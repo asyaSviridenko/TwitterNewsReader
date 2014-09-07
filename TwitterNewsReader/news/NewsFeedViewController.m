@@ -46,8 +46,6 @@ static const int gridThumbnailCount = 3;
     
     self.title = @"News Feed";
     
-    [self setRightBarButtonItem];
-    
     _tableView.allowsSelection = NO;
     _tableView.tableFooterView = [UIView new];
     _tableView.pullArrowImage = [UIImage imageNamed:@"PullDown.png"];
@@ -55,6 +53,10 @@ static const int gridThumbnailCount = 3;
     _tableView.pullBackgroundColor = _tableView.backgroundColor;
     _tableView.loadBackgroundColor = _tableView.backgroundColor;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    
+    [self setRightBarButtonItem];
+    [self showLoadingView:NO];
+    [self registerCellClasses];
 }
 
 #pragma mark - Public
@@ -64,6 +66,7 @@ static const int gridThumbnailCount = 3;
     if (![_connectionService isEqual:connectionService]) {
         _connectionService = connectionService;
         
+        [self showLoadingView:YES];
         [_connectionService getTimeLineSince:voidParameter till:voidParameter resultHandler:[self resultHandler]];
     }
 }
@@ -75,6 +78,7 @@ static const int gridThumbnailCount = 3;
     _isGridMode = !_isGridMode;
     [self setRightBarButtonItem];
     _tableView.separatorStyle = _isGridMode ? UITableViewCellSeparatorStyleNone : UITableViewCellSeparatorStyleSingleLine;
+    
     [_tableView reloadData];
 }
 
@@ -82,6 +86,7 @@ static const int gridThumbnailCount = 3;
 {
     NSString *name = _isGridMode ? @"Selector_active.png" : @"Selector.png";
     UIImage *image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(onSwitchViewMode)];
 }
 
@@ -123,6 +128,13 @@ static const int gridThumbnailCount = 3;
     } copy];
 }
 
+- (void)registerCellClasses
+{
+    [_tableView registerNib:[UINib nibWithNibName:@"TweetCell" bundle:nil] forCellReuseIdentifier:@"tableCellID"];
+    
+    [_tableView registerClass:[TweetThumbnailCell class] forCellReuseIdentifier:@"gridCellID"];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,21 +153,11 @@ static const int gridThumbnailCount = 3;
 {
     if (_isGridMode) {
         TweetThumbnailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gridCellID"];
-        
-        if (cell == nil) {
-            cell = [[TweetThumbnailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"gridCellID"];
-        }
-        
         cell.rowTweets = [self getRowTweetsForIndexPath:indexPath];
         return cell;
         
     } else {
-        TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-        
-        if (cell == nil) {
-            cell = [TweetCell loadFromNib];
-        }
-        
+        TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableCellID"];
         cell.tweet = [_tweets objectAtIndex:indexPath.row];
         return cell;
     }

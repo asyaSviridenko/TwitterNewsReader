@@ -71,7 +71,7 @@
 
 - (void)onAccountLoadFailed
 {
-    [[[UIAlertView alloc] initWithTitle:nil message:@"Unable to load account." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Unable to get access to your twitter account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 #pragma mark - Properties
