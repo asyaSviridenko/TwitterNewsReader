@@ -54,6 +54,7 @@ static const int gridThumbnailCount = 3;
     _tableView.backgroundColor = self.view.backgroundColor;
     _tableView.pullBackgroundColor = _tableView.backgroundColor;
     _tableView.loadBackgroundColor = _tableView.backgroundColor;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 }
 
 #pragma mark - Public
@@ -73,6 +74,7 @@ static const int gridThumbnailCount = 3;
 {
     _isGridMode = !_isGridMode;
     [self setRightBarButtonItem];
+    _tableView.separatorStyle = _isGridMode ? UITableViewCellSeparatorStyleNone : UITableViewCellSeparatorStyleSingleLine;
     [_tableView reloadData];
 }
 
@@ -156,7 +158,6 @@ static const int gridThumbnailCount = 3;
         }
         
         cell.tweet = [_tweets objectAtIndex:indexPath.row];
-        cell.backgroundColor = indexPath.row % 2 ? [UIColor greenColor] : [UIColor redColor];
         return cell;
     }
 }

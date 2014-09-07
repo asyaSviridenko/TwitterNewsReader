@@ -37,7 +37,7 @@
     [super layoutSubviews];
     
     CGRect rect = _tweetLabel.frame;
-    rect.size.height = self.bounds.size.height - CGRectGetMaxY(_userLabel.frame);
+    rect.size.height = self.bounds.size.height - CGRectGetMaxY(_userLabel.frame) - 4.0f;
     _tweetLabel.frame = rect;
 }
 
@@ -48,7 +48,6 @@
         
         _userLabel.text = _tweet.user;
         _tweetLabel.text = _tweet.text;
-        _tweetLabel.backgroundColor = [UIColor yellowColor];
         [_imageView displayImage:[[ImageCache shared] remoteImageForURL:_tweet.imageURL]];
         _dateLabel.text = [[NSDateFormatter tweetFormatter] stringFromDate:_tweet.createdAt];
     }
@@ -56,11 +55,12 @@
 
 + (CGFloat)viewHeightForText:(NSString *)text
 {
-    CGRect textRect = [text boundingRectWithSize:CGSizeMake(242, 500)
+    CGRect textRect = [text boundingRectWithSize:CGSizeMake(242, NSIntegerMax)
                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16.0f]}
+                                      attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0f]}
                                          context:nil];
-    return textRect.size.height + 30.0f;
+
+    return  textRect.size.height + 34.0f;
 }
 
 @end
